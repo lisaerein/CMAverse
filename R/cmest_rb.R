@@ -735,7 +735,13 @@ estinf_rb <- function() {
     out$reg.output <- est$reg.output
     if (inference == "bootstrap") {
       # bootstrap results
-      boots <- boot(data = data, statistic = est_rb, R = nboot, outReg = FALSE)
+      boots <- boot(data = data
+                    , statistic = est_rb
+                    , R = nboot
+                    , outReg = FALSE
+                    , sim = "parametric"
+                    , ran.gen = csample
+                    )
       # bootstrap CIs
       environment(boot.ci) <- environment()
       effect.ci <- boot.ci(boots = boots)
@@ -783,7 +789,12 @@ estinf_rb <- function() {
       }
       environment(boot.step) <- environment()
       # bootstrap results
-      boots <- boot(data = data, statistic = boot.step, R = nboot)
+      boots <- boot(data = data
+                    , statistic = boot.step
+                    , R = nboot
+                    , sim = "parametric"
+                    , ran.gen = csample
+                    )
       # bootstrap CIs
       environment(boot.ci) <- environment()
       effect.ci <- boot.ci(boots = boots)

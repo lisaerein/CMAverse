@@ -272,7 +272,14 @@ estinf <- function() {
       out$reg.output <- est$reg.output
       if (inference == "bootstrap") {
         # bootstrap results
-        boots <- boot(data = data, statistic = est.rb, R = nboot, outReg = FALSE, full = full)
+        boots <- boot(data = data
+                      , statistic = est.rb
+                      , R = nboot
+                      , outReg = FALSE
+                      , full = full
+                      , sim = "parametric"
+                      , ran.gen = csample
+                      )
         # bootstrap CIs
         environment(boot.ci) <- environment()
         effect.ci <- boot.ci(boots = boots)
@@ -320,7 +327,12 @@ estinf <- function() {
         }
         environment(boot.step) <- environment()
         # bootstrap results
-        boots <- boot(data = data, statistic = boot.step, R = nboot)
+        boots <- boot(data = data
+                      , statistic = boot.step
+                      , R = nboot
+                      , sim = "parametric"
+                      , ran.gen = csample
+                      )
         # bootstrap CIs
         environment(boot.ci) <- environment()
         effect.ci <- boot.ci(boots = boots)
@@ -398,7 +410,14 @@ estinf <- function() {
       n_effect <- length(effect.pe)
       out$reg.output <- est$reg.output
       # bootstrap results
-      boots <- boot(data = data, statistic = est.gformula, R = nboot, outReg = FALSE, full = full)
+      boots <- boot(data = data
+                    , statistic = est.gformula
+                    , R = nboot
+                    , outReg = FALSE
+                    , full = full
+                    , sim = "parametric"
+                    , ran.gen = csample
+                    )
       # bootstrap CIs
       environment(boot.ci) <- environment()
       effect.ci <- boot.ci(boots = boots)
@@ -430,7 +449,12 @@ estinf <- function() {
       }
       environment(boot.step) <- environment()
       # bootstrap results
-      boots <- boot(data = data, statistic = boot.step, R = nboot)
+      boots <- boot(data = data
+                    , statistic = boot.step
+                    , R = nboot
+                    , sim = "parametric"
+                    , ran.gen = csample
+                    )
       # bootstrap CIs
       environment(boot.ci) <- environment()
       effect.ci <- boot.ci(boots = boots)
@@ -510,7 +534,14 @@ estinf <- function() {
       n_effect <- length(effect.pe)
       out$reg.output <- est$reg.output
       # bootstrap results
-      boots <- boot(data = data, statistic = est.wb, R = nboot, outReg = FALSE, full = full)
+      boots <- boot(data = data
+                    , statistic = est.wb
+                    , R = nboot
+                    , outReg = FALSE
+                    , full = full
+                    , sim = "parametric"
+                    , ran.gen = csample
+                    )
       # bootstrap CIs
       environment(boot.ci) <- environment()
       effect.ci <- boot.ci(boots = boots)
@@ -541,7 +572,12 @@ estinf <- function() {
       }
       environment(boot.step) <- environment()
       # bootstrap results
-      boots <- boot(data = data, statistic = boot.step, R = nboot)
+      boots <- boot(data = data
+                    , statistic = boot.step
+                    , R = nboot
+                    , sim = "parametric"
+                    , ran.gen = csample
+                    )
       # bootstrap CIs
       environment(boot.ci) <- environment()
       effect.ci <- boot.ci(boots = boots)
@@ -605,7 +641,14 @@ estinf <- function() {
       n_effect <- length(effect.pe)
       out$reg.output <- est$reg.output
       # bootstrap results
-      boots <- boot(data = data, statistic = est.iorw, R = nboot, outReg = FALSE, full = full)
+      boots <- boot(data = data
+                    , statistic = est.iorw
+                    , R = nboot
+                    , outReg = FALSE
+                    , full = full
+                    , sim = "parametric"
+                    , ran.gen = csample
+                    )
       # bootstrap CIs
       environment(boot.ci) <- environment()
       effect.ci <- boot.ci(boots = boots)
@@ -636,7 +679,12 @@ estinf <- function() {
       }
       environment(boot.step) <- environment()
       # bootstrap results
-      boots <- boot(data = data, statistic = boot.step, R = nboot)
+      boots <- boot(data = data
+                    , statistic = boot.step
+                    , R = nboot
+                    , sim = "parametric"
+                    , ran.gen = csample
+                    )
       # bootstrap CIs
       environment(boot.ci) <- environment()
       effect.ci <- boot.ci(boots = boots)
@@ -704,7 +752,14 @@ estinf <- function() {
       n_effect <- length(effect.pe)
       out$reg.output <- est$reg.output
       # bootstrap results
-      boots <- boot(data = data, statistic = est.msm, R = nboot, outReg = FALSE, full = full)
+      boots <- boot(data = data
+                    , statistic = est.msm
+                    , R = nboot
+                    , outReg = FALSE
+                    , full = full
+                    , sim = "parametric"
+                    , ran.gen = csample
+                    )
       # bootstrap CIs
       environment(boot.ci) <- environment()
       effect.ci <- boot.ci(boots = boots)
@@ -736,7 +791,12 @@ estinf <- function() {
       }
       environment(boot.step) <- environment()
       # bootstrap results
-      boots <- boot(data = data, statistic = boot.step, R = nboot)
+      boots <- boot(data = data
+                    , statistic = boot.step
+                    , R = nboot
+                    , sim = "parametric"
+                    , ran.gen = csample
+                    )
       # bootstrap CIs
       environment(boot.ci) <- environment()
       effect.ci <- boot.ci(boots = boots)
@@ -813,7 +873,14 @@ estinf <- function() {
       n_effect <- length(effect.pe)
       out$reg.output <- est$reg.output
       # bootstrap results
-      boots <- boot(data = data, statistic = est.ne, R = nboot, outReg = FALSE, full = full)
+      boots <- boot(data = data
+                    , statistic = est.ne
+                    , R = nboot
+                    , outReg = FALSE
+                    , full = full
+                    , sim = "parametric"
+                    , ran.gen = csample
+                    )
       # bootstrap CIs
       environment(boot.ci) <- environment()
       effect.ci <- boot.ci(boots = boots)
@@ -843,7 +910,12 @@ estinf <- function() {
       }
       environment(boot.step) <- environment()
       # bootstrap results
-      boots <- boot(data = data, statistic = boot.step, R = nboot)
+      boots <- boot(data = data
+                    , statistic = boot.step
+                    , R = nboot
+                    , sim = "parametric"
+                    , ran.gen = csample
+                    )
       # bootstrap CIs
       environment(boot.ci) <- environment()
       effect.ci <- boot.ci(boots = boots)

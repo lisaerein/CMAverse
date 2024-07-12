@@ -248,7 +248,13 @@ rcreg <- function(reg = NULL, formula = NULL, data = NULL, weights = NULL,
     }
     
     if (variance) {
-      boots <- boot(data = data, ind_data = ind_data, statistic = rc_step, R = nboot)
+      boots <- boot(data = data
+                    , ind_data = ind_data
+                    , statistic = rc_step
+                    , R = nboot
+                    , sim = "parametric"
+                    , ran.gen = csample
+                    )
       mean_boots <- apply(boots$t, 2, function(x) mean(x, na.rm = TRUE))
       RCvcov <- Reduce("+", lapply(1:nboot, function(x)
         as.matrix(boots$t[x,] - mean_boots)%*%t(as.matrix(boots$t[x,] - mean_boots)))) / (nboot - 1)
